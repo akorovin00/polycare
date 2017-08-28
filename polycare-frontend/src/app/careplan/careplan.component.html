@@ -1,0 +1,40 @@
+<p>
+  List of tasks for a careplan
+</p>
+<table class="careplan-table">
+  <thead>
+    <tr>
+      <th data-field="title">Title</th>
+      <th data-field="start">Start</th>
+      <th data-field="end">End</th>
+      <th data-field="posology">Posology</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let task of tasks">
+      <td>{{ task.title }}</td>
+      <td>{{ task.start }}</td>
+      <td>{{ task.end }}</td>
+      <td>{{ task.posology }}</td>
+      <td>
+        <a [routerLink]="['/careplan', task.id]">
+          <span class="glyphicon glyphicon-pencil"></span>
+        </a>
+      </td>
+      <td>
+        <a (click)="deleteTask(task)">
+          <span class="glyphicon glyphicon-trash"></span>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class="container">
+  <a class="btn btn-primary"
+     routerLink="/careplan/new">
+    <i class="glyphicon glyphicon-plus-sign">Add</i>
+  </a>
+</div>

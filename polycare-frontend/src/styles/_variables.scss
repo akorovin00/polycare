@@ -1,0 +1,29 @@
+// Variables
+// ---------
+
+/// == Colors
+/// Navigation
+/// @group color
+$nav-button-color: #00838F !default;
+
+/// Brand colors
+/// @group color
+$gray-color: #ced1dd !default;
+$main-color: #1549ba !default;
+
+/// Background colors
+$main-bg-color: #fff !default;
+
+/// Links
+/// @group color
+$main-link-color: #222 !default;
+$main-link-hover-color: lighten($main-link-color, 40%) !default;
+
+/// == Typography
+/// Font family
+/// @group font-family
+$font-family-sans-serif: Helvetica, Arial, sans-serif !default;
+$font-family-base: $font-family-sans-serif !default;
+
+/// Font size
+$font-size-base: 18px;

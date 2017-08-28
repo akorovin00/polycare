@@ -1,0 +1,70 @@
+<h2>Careplan Task</h2>
+<div class="container">
+  <div class="row">
+    <form [formGroup]="form" (ngSubmit)="save()">
+      <!-- Task title -->
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input id="title" type="text" class="form-control"
+                 [(ngModel)]="task.title" formControlName="title"
+                 [class.invalid]="form.controls['title'].touched && !form.controls['title'].valid">
+        <div class="alert alert-danger"
+             *ngIf="!form.controls['title'].valid &&
+                    form.controls['title'].touched">
+          Title is required and needs to contain from 1 to 30 characters.
+        </div>
+      </div>
+
+      <!-- Start date -->
+      <div class="form-group">
+        <label for="start">Start date</label>
+        <input id="start" type="date" class="form-control"
+               [(ngModel)]="task.start" formControlName="start">
+      </div>
+
+      <!-- End date -->
+      <div class="form-group">
+        <label for="end">End date</label>
+        <input id="end" type="date" class="form-control"
+               [(ngModel)]="task.end" formControlName="end">
+      </div>
+
+      <!-- Posology -->
+      <div class="form-group">
+        <label for="posology">
+          Posology (frequency)
+        </label>
+        <input id="posology" type="text" class="form-control"
+               [(ngModel)]="task.posology" formControlName="posology">
+      </div>
+
+      <!-- Medication Array -->
+      <div formArrayName="medication">
+        <div *ngFor="let medication of form.controls['medication'].controls; let i=index" class="panel panel-default">
+          <div class="panel-heading">
+            <span>Medication {{i + 1}}</span>
+          </div>
+          <div class="panel-body" [formGroupName]="i">
+            <app-medication-form [medicationForm]="form.controls['medication'].controls[i]"></app-medication-form>
+          </div>
+        </div>
+      </div>
+
+      <input id="id" type="hidden" [(ngModel)]="task.id" formControlName="id">
+
+      <!-- Add medication button -->
+      <div class="form-group">
+        <a class="btn btn-primary" (click)="addMedicationFormToArray()">
+          Add Medication +
+        </a>
+      </div>
+
+      <div class="form-group">
+        <button class="btn" type="submit"
+                [disabled]="!form.valid">
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

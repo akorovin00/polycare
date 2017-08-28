@@ -1,0 +1,35 @@
+@import '../../styles/variables';
+
+@mixin even() {
+  &:nth-child(even) {
+    @content
+  }
+}
+
+table.careplan-table {
+  width: 100%;
+  float: left;
+  margin: 0 0 1em;
+  border-bottom: 3px solid $main-color;
+  thead {
+    border-bottom: 2px solid $main-color;
+    th {
+      padding: .35em 0 .35em;
+      font-weight: 400;
+      text-align: left;
+    }
+  }
+
+  tbody {
+    tr {
+      border-bottom: 2px solid #ddd;
+      td {
+        padding: .75em 0;
+      }
+      &:nth-child(even) {
+        background: $gray-color;
+      }
+    }
+
+  }
+}

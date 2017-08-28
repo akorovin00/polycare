@@ -1,0 +1,10 @@
+<div [formGroup]="medicationForm">
+  <div class="form-group col-xs-6">
+    <label>Medication title</label>
+    <input type="text" class="form-control" formControlName="title">
+    <small [hidden]="medicationForm.controls.title.valid" class="text-danger">
+      Medication title is required
+    </small>
+  </div>
+  <input id="id" type="hidden" formControlName="id">
+</div>

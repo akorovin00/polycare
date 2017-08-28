@@ -1,0 +1,17 @@
+/* this file will be extracted to main dist folder and is imported in index.html */
+/* This file is for setting global styles  */
+@import 'variables';
+
+body {
+  font-size: $font-size-base;
+  line-height: 1.5;
+  background-color: $main-bg-color;
+  width: 100%;
+  position: absolute;
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: $font-family-base
+}
